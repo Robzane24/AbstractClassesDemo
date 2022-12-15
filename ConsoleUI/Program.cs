@@ -32,22 +32,69 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            var vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * 
              * Set the properties with object initializer syntax
              */
+            var car1 = new Car()
+            {
+                hasTrunk = true,
+                Year = "2022",
+                Make = "Honda",
+                Model = "Civic"
+                    
+            };
 
+            var motorcycle1 = new Motorcycle()
+            {
+                hasSideCar = true,
+                Year = "2010",
+                Make = "Suzuki",
+                Model = "Hayabusa"
+            };
+
+            Vehicle vehicle1 = new Car()
+            { 
+                Year = "2016",
+                Make = "Toyota",
+                Model = "Camry"
+            };
+
+            Vehicle vehicle2 = new Motorcycle()
+            {
+                Year = "2005",
+                Make = "Honda",
+                Model = "CBR"
+            };
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
+            vehicles.Add(car1);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(vehicle1);
+            vehicles.Add(vehicle2);
 
+            foreach (var vehicle in vehicles)
+            {
+
+                Console.WriteLine($"{vehicle.Year}");
+                Console.WriteLine($"{vehicle.Make}");
+                Console.WriteLine($"{vehicle.Model}");
+                Console.WriteLine();
+            }
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
-            Console.ReadLine();
+            car1.DriveAbstract();
+            car1.DriveVirtual();
+            Console.WriteLine();
+
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual(); 
+
+            #endregion
+           
         }
     }
 }
